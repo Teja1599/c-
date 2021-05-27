@@ -1,0 +1,432 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		Console.WriteLine("Hello World");
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int x,y; 
+		Console.WriteLine("Enter x value");
+		x=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter y value");
+		y=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("x+y="+(x+y).ToString());
+		Console.ReadLine();
+		
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int x,y; 
+		Console.WriteLine("Enter x value");
+		x=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter y value");
+		y=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("x-y="+(x-y).ToString());
+		Console.ReadLine();
+		
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int x,y; 
+		Console.WriteLine("Enter x value");
+		x=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter y value");
+		y=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("x*y="+(x*y).ToString());
+		Console.ReadLine();
+		
+	}
+}
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int x,y; 
+		Console.WriteLine("Enter x value");
+		x=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("Enter y value");
+		y=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("x/y="+(x/y).ToString());
+		Console.ReadLine();
+		
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	int num; 
+		Console.WriteLine("num");
+		num=Convert.ToInt32(Console.ReadLine());
+		if(num%2==0)
+		{
+			Console.WriteLine("number:"+(num).ToString()+" is even");	
+		}
+		else
+		{
+			Console.WriteLine("number:"+(num).ToString()+" is odd");	
+		}
+	}
+}
+
+
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	int age; 
+		Console.WriteLine("enter age of person");
+		age=Convert.ToInt32(Console.ReadLine());
+		if(age>=18)
+		{
+				Console.WriteLine("person with age:"+age.ToString()+" is eligible");	
+		}
+		else
+		{
+			Console.WriteLine("person with age:"+age.ToString()+" is not eligible");	
+		}
+	}
+}
+
+
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	int age; 
+		Console.WriteLine("enter age of person");
+		age=Convert.ToInt32(Console.ReadLine());
+		if(age>=18)
+		{
+			if(age<60)
+			{
+				Console.WriteLine("person with age:"+age.ToString()+" is eligible");
+			}
+			else
+			{
+				Console.WriteLine("person with age:"+age.ToString()+" is senior citizen");
+			}	
+		}
+		else
+		{
+			Console.WriteLine("person with age:"+age.ToString()+" is eligible");	
+		}
+	}
+}
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	int n1,n2,n3; 
+		Console.WriteLine("enter first number");
+		n1=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("enter second number");
+		n2=Convert.ToInt32(Console.ReadLine());
+		Console.WriteLine("enter third number");
+		n3=Convert.ToInt32(Console.ReadLine());
+		if(n1>n2 && n1>n3) 
+		{
+			Console.WriteLine("first number:"+n1.ToString()+"is highest");
+		}
+		else if(n2>n1 && n2>n3) 
+		{
+			Console.WriteLine("second number:"+n2.ToString()+"is highest");
+		}
+		else
+		{
+			Console.WriteLine("third number:"+n3.ToString()+"is highest");
+		}
+			
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+	int num; 
+		Console.WriteLine("enter first number");
+		num=Convert.ToInt32(Console.ReadLine());
+		if(num==1) 
+		{
+			Console.WriteLine(num.ToString()+": one");
+		}
+		else if(num==2) 
+		{
+			Console.WriteLine(num.ToString()+": two");
+		}
+		else if(num==3) 
+		{
+			Console.WriteLine(num.ToString()+": three");
+		}
+		else if(num==4) 
+		{
+			Console.WriteLine(num.ToString()+": four");
+		}
+		else if(num==5)
+		{
+			Console.WriteLine(num.ToString()+": five");
+		}
+		else
+		{
+			Console.WriteLine("enter btween 1-5");
+		}
+			
+			
+	}
+}
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int num;
+		Console.WriteLine("enter number");
+		num=Convert.ToInt32(Console.ReadLine());
+		switch(num)
+		{
+			case 1:	
+				Console.WriteLine(num.ToString()+": one");
+				break;
+			case 2:	
+				Console.WriteLine(num.ToString()+": two");
+				break;
+			case 3:	
+				Console.WriteLine(num.ToString()+": three");
+				break;
+			case 4:
+				Console.WriteLine(num.ToString()+": four");
+				break;
+			case 5:	
+				Console.WriteLine(num.ToString()+": five");
+				break;
+			default :
+				Console.WriteLine("enter btween 1-5");
+				break;
+		}
+		
+	}
+}
+
+
+using System;
+	
+public class Program
+{
+	public static void Main()
+	{
+		int Number;
+		Number = Convert.ToInt32(Console.ReadLine());
+		for( int i=1;i<=Number;i++)
+		{
+			for(int j=1;j<=i;j++)
+			{
+				Console.Write(" * ");
+			}
+		Console.WriteLine(); // acts as Console.Write("\n")
+		}
+	Console.ReadLine();
+	}
+}
+
+
+using System;
+
+namespace day_1
+{
+    class Program
+    {
+        static void Main(string[] args)
+
+        {
+            int num,i,j;
+            Console.WriteLine("enter the number ");
+            num = Convert.ToInt32(Console.ReadLine());
+            for(i=1;i<=num;i++)
+            {
+                for (j = 1; j <= num-i; j++)
+                    Console.Write(" ");
+                for(j=1;j<=2*i-1;j++)
+                    Console.Write("*");
+                Console.WriteLine();
+            }
+        }
+    }
+}
+
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int counter=5;
+		for(int i=1;i<=5;i++)
+		{
+			for(int j=1;j<=counter-1;j++)
+			{
+				Console.Write(" ");
+			}
+			for(int k=1;k<=2*i-1;k++)
+			{
+				Console.Write("*");
+			}
+			counter--;
+			Console.WriteLine();
+		}
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int []a=new int [3];	
+		for(int i=0;i<a.Length;i++)
+		{
+			Console.WriteLine("enter value for a["+i+"] :");
+			a[i]=Convert.ToInt32(Console.ReadLine());
+		}
+		foreach(var item in a)
+		{
+			Console.WriteLine(item);
+		}
+	}
+}
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int []a=new int [3];	
+		for(int i=0;i<a.Length;i++)
+		{
+			Console.WriteLine("enter value for a["+i+"] :");
+			a[i]=Convert.ToInt32(Console.ReadLine());
+		}
+		foreach(var item in a)
+		{
+			if(item%2==0)
+			{
+				Console.WriteLine(item+" :even");
+			}
+			else
+			{
+				Console.WriteLine(item+" :odd");
+			}
+		}
+	}
+}
+
+
+
+
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		int[] arr1 = new int[3];
+		int[] Counter = new int[3];
+		int counter;
+		//input values
+		Console.WriteLine("Input elements");
+		for (int i = 0; i < arr1.Length; i++)
+		{
+			arr1[i] = Convert.ToInt32(Console.ReadLine());
+			Counter[i] = -1;
+		}
+		for (int i = 0; i < arr1.Length; i++)
+		{
+			counter = 1;
+			for (int j = i+1; j < arr1.Length; j++)
+			{
+				if(arr1[i]== arr1[j])
+				{
+					counter++;
+					Counter[j] = 0;
+				}
+			}
+			if (Counter[i] != 0)
+			{
+				Counter[i] = counter;
+			}
+		}
+		for (int i = 0; i < arr1.Length; i++)
+		{
+			if(Counter[i]!=0)
+			{
+				Console.WriteLine("{0} occurs {1}",arr1[i],Counter[i]);
+			}
+		}
+		Console.ReadLine();
+	}
+}
