@@ -1,0 +1,439 @@
+
+// Consturctors
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_3
+{
+    class Student
+    {
+        public int Studentid;
+        public string Studentname;
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student(); // to declare object
+            Console.WriteLine("Enter student ID");
+            student.Studentid = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter student name");
+            student.Studentname = Console.ReadLine();
+
+            Console.WriteLine("Student details are:");
+            Console.WriteLine("student ID:" + student.Studentid);
+            Console.WriteLine("student name:" + student.Studentname);
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// constructor
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_3
+{
+    class Student
+    {
+        public int Studentid;
+        public string Studentname;
+
+        public void getstudentdata() // function to read data
+        {
+            Console.WriteLine("Enter student ID");
+            Studentid = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("Enter student name");
+            Studentname = Console.ReadLine();
+
+        }
+
+        public void printstudentdata() // function to print data
+        {
+            Console.WriteLine("Student details are:");
+            Console.WriteLine("student ID:" + Studentid);
+            Console.WriteLine("student name:" + Studentname);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student();
+            student.getstudentdata();
+            student.printstudentdata();
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// Parametrized constructor
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_3
+{
+    class Student
+    {
+        public int Studentid;
+        public string Studentname;
+
+        public Student(int Studentid, string Studentname) // parametrized constructor
+        {
+            this.Studentid = Studentid;
+            this.Studentname = Studentname;
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student student = new Student(101,"teja");
+            Console.Write(student.Studentid);
+            Console.Write(student.Studentname);
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// copy constructor
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_3
+{
+    class Student
+    {
+        public int Studentid;
+        public string Studentname;
+
+        // declaring copy constructor
+        public Student(Student student) // declaring copy constructor
+        {
+            Studentid = student.Studentid;
+            Studentname = student.Studentname;
+        }
+        public Student(int Studentid, string Studentname) // parametrized constructor
+        {
+            this.Studentid = Studentid;
+            this.Studentname = Studentname;
+        }
+
+        public void printstudentdata() // function to print data
+        {
+            Console.WriteLine("Student details are:");
+            Console.WriteLine("student ID:" + Studentid);
+            Console.WriteLine("student name:" + Studentname);
+        }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Student stu1 = new Student(101,"teja");
+            Student stu2 = new Student(stu1);
+            stu2.printstudentdata();
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+//single  Inheritance
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_3
+{
+    class animal
+    {
+       public void eat()
+        {
+            Console.Write("Dog can eat");
+        }
+
+    }
+    class dog:animal
+    {
+        public void bark()
+        {
+            Console.WriteLine("Dog can bark");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            dog d = new dog();
+            d.eat();
+            d.bark();
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// multiple child class inheritance
+
+// area of shapes
+
+// abstract class- inheritance is possible but cannot create object
+// sealed class- inheritance is not possible but can create object
+
+
+// task-1 person student teacher
+Create a new C # project with three classes plus another class to test the logic in your code. The main classes of the program are the following classes:
+
+ 
+
+Person
+Student
+Professor
+The Student and Teacher classes inherit from the Person class.
+
+ 
+
+The Student class will include a public Study() method that will write I'm studying on the screen.
+
+ 
+
+The Person class must have two public methods Greet() and SetAge(int age) that will assign the age of the person.
+
+ 
+
+The Teacher class will include a public Explain() method that will write I'm explaining on the screen.
+
+ 
+
+Also create a public method ShowAge() in the Student class that writes My age is: x years old on the screen.
+
+ 
+
+You must create another test class called StudentProfessorTest with a Main method to do the following:
+
+ 
+
+Create a new Person and make him say hello
+Create a new Student, set an age, say hello, and display her age on the screen.
+Create a new Teacher, set an age, say hello and start the explanation.
+
+program:
+
+using System;
+
+namespace day_3
+{
+    public class person
+    {
+        public int age;
+        public void greet()
+        {
+            Console.WriteLine("hello");
+        }
+
+        public void setage(int age)
+        {
+            this.age = age;
+
+        }
+     
+    }
+    class student : person
+    {
+        public void study()
+        {
+            Console.Write("I'm studying on the screen");
+        }
+        public void showage()
+        {
+            Console.WriteLine("My age is :" + age + " years");
+        }
+
+
+    }
+    class teacher : person
+    {
+        public void explain()
+        {
+            Console.WriteLine("I'm explaining on the screen");
+        }
+    }
+    class test
+    {
+        static void Main(string[] args)
+        {
+            person p = new person();
+            p.greet();
+            Console.WriteLine("Enter the age of the student: ");
+            int age1 = Convert.ToInt32(Console.ReadLine());
+            student st = new student();
+            st.setage(age1);
+            st.greet();
+            st.showage();
+            Console.WriteLine("Enter the age of the teacher: ");
+            int age2 = Convert.ToInt32(Console.ReadLine());
+            teacher t = new teacher();
+            t.setage(age2);
+            t.greet();
+            t.explain();
+
+            Console.ReadLine();
+
+        }
+    }
+}
+
+
+
+
+
+
+// task-2 photobook
+Create a C# program to manage a photo book using object-oriented programming.
+
+ 
+
+To start, create a class called PhotoBook with a private attribute numPages of type int. It must also have a public method GetNumberPages that will return the number of photo book pages.
+
+ 
+
+The default constructor will create an album with 16 pages. There will be an additional constructor, with which we can specify the number of pages we want in the album.
+
+ 
+
+There is also a BigPhotoBook class whose constructor will create an album with 64 pages.
+
+ 
+
+Finally create a PhotoBookTest class to perform the following actions:
+
+ 
+
+Create a default photo book and show the number of pages
+Create a photo book with 24 pages and show the number of pages
+Create a large photo book and show the number of pages
+
+
+program:
+
+
+using System;
+
+namespace day_3
+{
+    
+
+    public class PhotoBook
+    {
+        protected int numPages;
+
+        public PhotoBook()
+        {
+            numPages = 16;
+        }
+
+        public PhotoBook(int numPages)
+        {
+            this.numPages = numPages;
+        }
+
+        public int GetNumberPages()
+        {
+            return numPages;
+        }
+    }
+
+    public class bigPhotoBook : PhotoBook
+    {
+        public bigPhotoBook()
+        {
+            numPages = 64;
+        }
+    }
+    public class PhotoBookTest
+    {
+        public static void Main()
+        {
+            PhotoBook myAlbum1 = new PhotoBook();
+            Console.WriteLine(myAlbum1.GetNumberPages());
+
+            PhotoBook myAlbum2 = new PhotoBook(24);
+            Console.WriteLine(myAlbum2.GetNumberPages());
+
+            bigPhotoBook myBigPhotoAlbum1 = new bigPhotoBook();
+            Console.WriteLine(myBigPhotoAlbum1.GetNumberPages());
+
+
+            Console.ReadLine();
+        }
+        
+    }
+   
+}
+
+
+// Interface
+using System;
+
+namespace day_3
+{
+   interface I1
+    {
+        void lang();
+    }
+    interface I2
+    {
+        void courses();
+    }
+    class class10:I1,I2
+    {
+        public void lang()
+        {
+            Console.WriteLine("I1 interface");
+        }
+
+        public void courses()
+        {
+            Console.WriteLine("I2 interface");
+        }
+    }
+    class test
+    {
+        static void Main(string[] args)
+        {
+            class10 cl=new class10();
+            cl.lang();
+            cl.courses();
+
+            Console.ReadLine();
+
+        }
+    }
+}
+
