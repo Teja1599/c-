@@ -437,3 +437,62 @@ namespace day_3
     }
 }
 
+
+// instance car task
+using System;
+
+namespace day_3
+{
+   public interface IVehiculo
+    {
+
+        void drive();
+        bool refuel(int amount);
+    }
+    class car:IVehiculo
+    {
+        public int fuel;
+        public car(int fuel)
+        {
+            this.fuel = fuel;
+        }
+        public void drive()
+        {
+            if (fuel>0)
+            {
+                Console.WriteLine("driving");
+            }
+            else
+            {
+                Console.WriteLine("no fuel");
+            }
+
+        }
+        public bool refuel(int amount)
+        {
+            fuel = fuel + amount;
+            return true;
+        }
+
+    }
+    class test
+    {
+        static void Main(string[] args)
+        {
+
+            car c = new car(0);
+            int fuel = int.Parse(Console.ReadLine());
+            if (c.refuel(fuel))
+            {
+                c.drive();
+            }
+
+
+
+            Console.ReadLine();
+
+        }
+    }
+}
+
+
