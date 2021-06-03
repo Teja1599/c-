@@ -1,0 +1,315 @@
+// garbage 
+
+
+// system.collections - arrayList
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //1.ArrayList
+            ArrayList arrayList = new ArrayList();
+            arrayList.Add("Vikash");
+            arrayList.Add("Soham");
+            arrayList.Add(1);
+            arrayList.Remove(1);
+            for (int i = 0; i < arrayList.Count; i++)
+            {
+                Console.WriteLine(arrayList[i]);
+            }
+			Console.ReadLine();
+        }
+    }
+}
+
+
+// system.collections - hashtable
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //2.Hashtable
+            Hashtable hashtable = new Hashtable();
+            hashtable.Add(101, "Vikash");
+            hashtable.Add(102, "Raj");
+            hashtable.Add(103, "Sujan Singh");
+            ICollection keys = hashtable.Keys;
+            foreach (var item in keys)
+            {
+                Console.WriteLine(item + ":-" + hashtable[item]);
+            }
+			Console.ReadLine();
+        }
+    }
+}
+
+// system.collections - queue
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //3Queue
+            Queue queue = new Queue();
+            queue.Enqueue("C#");
+            queue.Enqueue("PHP");
+            queue.Enqueue("JAVA");
+            queue.Dequeue();
+            Console.WriteLine(queue.Peek());
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// system.collections - stack
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            //4.Stack
+            Stack stack = new Stack();
+            stack.Push("C#");
+            stack.Push("PHP");
+            stack.Push("JAVA");
+            stack.Pop();
+            Console.WriteLine(stack.Peek());
+            Console.ReadLine();
+        }
+    }
+}
+
+// string charecters count using dictionary
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace day_6
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string Input = "aabbbbcd";
+            Dictionary<char, int> keyValuePairs = new Dictionary<char, int>();
+
+
+
+            foreach (var item in Input)
+            {
+                int counter;
+                keyValuePairs.TryGetValue(item, out counter);
+                if (counter == 0)
+                {
+                    keyValuePairs.Add(item, 1);
+                }
+                else
+                {
+                    keyValuePairs.Remove(item);
+                    keyValuePairs.Add(item, counter + 1);
+                }
+            }
+            foreach (var item in keyValuePairs)
+            {
+                Console.WriteLine(item.Key + " - " + item.Value);
+            }
+            Console.ReadLine();
+        }
+    }
+}
+
+
+// ticket booking task
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+ 
+
+namespace ConsoleApp1
+{
+    class Employee
+    {
+       
+        public int EmployeeID { get; set; }
+        public string EmployeeName { get; set; }
+        public DateTime EmployeeTravelDate { get; set; }
+        public string TravelLocation { get; set; }
+    }
+    class Program
+    {
+        public static void Main()
+        {
+            Employee employee = new Employee();
+            ValidateEmployeeInformation validate = new ValidateEmployeeInformation();
+        EnterId:
+            {
+                Console.Write("Enter Your Employee ID:");
+                try
+                {
+                    employee.EmployeeID = validate.checkId(Console.ReadLine());
+                }
+                catch (MyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    goto EnterId;
+                }
+            }
+        EnterName:
+            {
+                Console.Write("Enter Your Employee Name :");
+                try
+                {
+                   employee.EmployeeName= validate.checkName(Console.ReadLine());
+                }
+                catch (MyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    goto EnterName;
+                }
+            }
+        EnterDate:
+            {
+                Console.Write("Enter Travel Date: ");
+                try
+                {
+                    employee.EmployeeTravelDate = validate.CheckDate(Console.ReadLine());
+                }
+                catch (MyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    goto EnterDate;
+                }
+            }
+
+ 
+
+        EnterLocation:
+            {
+                Console.Write("Enter Travel Location: ");
+                try
+                {
+                    employee.TravelLocation=validate.checkLocation(Console.ReadLine());
+                }
+                catch (MyException ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    goto EnterLocation;
+                }
+            }
+            
+            Console.WriteLine("Ticket is booked  and below are the details");
+            Console.WriteLine("Employee Id | Employee Name | Travel Date | Location");
+            Console.WriteLine(employee.EmployeeID+ " | " + employee.EmployeeName + " | "+ employee.EmployeeTravelDate+ " | " + employee.TravelLocation);
+            Console.ReadLine();
+        }
+    }
+    class MyException:Exception
+    {
+        public MyException(String msg) : base(msg) { }
+    }
+    class ValidateEmployeeInformation
+    {
+        public int checkId(String employeeID)
+        {
+            int result;
+            int.TryParse(employeeID, out result);
+            if (result > 0)
+            {
+                if (employeeID.Length != 6)
+                {
+                    throw new MyException("Not a 6 digit Employee Id ");
+                }
+            }
+            else
+            {
+                throw new MyException(" Employee Id can contains only Digits...");
+            }
+            return Convert.ToInt32(employeeID);
+        }
+        public string checkName(String employeeName)
+        {
+            //for (int i = 0; i < .Length; i++)
+            //{
+            //    if (s[i] >= 'a' && s[i] <= 'z' || s[i] >= 'A' && s[i] <= 'Z')
+            //    {
+
+ 
+
+            //    }
+            //    else {
+            //        throw new MyException("Employee name can contains Only Alphabets.");
+            //    }
+            //}
+            return employeeName;
+        }
+        public string checkLocation(String location)
+        {
+            if (location.ToLower() == "mumbai" || location.ToLower() == "pune")
+            {
+                return location;
+            }
+            else {
+                throw new MyException("Location  can contains only Mumbai or Pune");
+            }
+        }
+        public DateTime CheckDate(string date)
+        {
+            var InputDate = DateTime.ParseExact(date,"MM-dd-yyyy",CultureInfo.InvariantCulture);
+            var todaysDate = DateTime.Today;
+            if(InputDate!= todaysDate)
+            {
+                throw new MyException("Please enter Today's Date only");
+            }
+            else
+            {
+                return InputDate;
+            }
+        }
+    }
+}
+
+ 
